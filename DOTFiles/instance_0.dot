@@ -1,18 +1,20 @@
-digraph DFA {
+digraph NFA {
  rankdir=LR;
  node [shape=circle];
  size="8,5";
  overlap=false;
  splines=true;
- 2;
+ 4;
+ 3;
+ 2 [shape=doublecircle];
  1 [shape=doublecircle];
- 0 [style=filled, fillcolor=yellow];
- init [shape=point];
- init -> 0;
- 2 -> 2 [label="b"];
- 2 -> 1 [label="a"];
- 1 -> 2 [label="b"];
- 1 -> 0 [label="a"];
- 0 -> 2 [label="b"];
- 0 -> 1 [label="a"];
+ 0 [style=filled, fillcolor=blue, fontcolor=white];
+  init [shape=point];
+  init -> 0;
+  4 -> 2 [label="c"];
+  3 -> 1 [label="c"];
+  2 -> 4 [label="b"];
+  1 -> 3 [label="b"];
+  0 -> 2 [label="a"];
+  0 -> 1 [label="a"];
 }

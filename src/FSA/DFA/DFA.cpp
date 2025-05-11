@@ -12,7 +12,7 @@ void DFA::addTransition(int initialState, char symbol, int finalState) {
     if (states.find(initialState) == states.end() || states.find(finalState) == states.end()) {
         throw std::invalid_argument("Invalid state in transition");
     }
-
+    
     alphabet.insert(symbol);
     
     transitionTable[initialState][symbol] = finalState;
@@ -79,7 +79,15 @@ void DFA::instanceDFA(int currentState, int highlightedEdgeStart, int highlighte
     {
         if (s == currentState)
         {
-            file << " " << s << " [style=filled, fillcolor=yellow];" << std::endl;
+            // accept state is double circle
+            if(acceptStates.find(s) != acceptStates.end())
+            {
+                file << " " << s << " [shape=doublecircle, style=filled, fillcolor=green];" << std::endl;
+            }
+            else
+            {
+                file << " " << s << " [style=filled, fillcolor=blue, fontcolor=white];" << std::endl;
+            }
         }
         else if (acceptStates.find(s) != acceptStates.end())
         {

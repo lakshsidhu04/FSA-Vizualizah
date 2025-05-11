@@ -1,16 +1,20 @@
 #include <iostream>
-#include "./src/FSA/DFA.h"
+#include "./src/FSA/DFA/DFA.h"
+#include "./src/FSA/NFA/NFA.h"
 
 using namespace std;
 
 int main(){
-    DFA dfa(3, 0, {1});
-    dfa.addTransition(0, 'a', 1);
-    dfa.addTransition(0, 'b', 2);
-    dfa.addTransition(1, 'a', 0);
-    dfa.addTransition(1, 'b', 2);
-    dfa.addTransition(2, 'a', 1);
-    dfa.addTransition(2, 'b', 2);
-    dfa.createGIF("aab");
-    return 0;
+    NFA nfa(5, 0, {1, 2});
+    nfa.addTransition(0, 'a', 1);
+    nfa.addTransition(0, 'a', 2);
+    nfa.addTransition(1, 'b', 3);
+    nfa.addTransition(2, 'b', 4);
+
+    nfa.addTransition(3, 'c', 1);
+    nfa.addTransition(4, 'c', 2);
+
+    nfa.createGIF("abc");
+
+
 }

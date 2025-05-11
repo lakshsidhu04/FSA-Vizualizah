@@ -1,6 +1,15 @@
 #!/usr/bin/env bash
 
+DOT_DIR="DOTFiles"
+PNG_DIR="PNGFiles"
+
+#clean directories of PNG and DOT files
+rm -rf "$PNG_DIR"
+rm -rf "$DOT_DIR"
+
+
 mkdir -p "DOTFiles"
+mkdir -p "PNGFiles"
 
 ./exec
 
